@@ -23,6 +23,12 @@ defmodule BiblereadinglogWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/", BiblereadinglogWeb do
+    pipe_through :api
+
+    get "/table_of_contents", TableOfContentsController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", BiblereadinglogWeb do
   #   pipe_through :api
